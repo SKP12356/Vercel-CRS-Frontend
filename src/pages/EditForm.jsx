@@ -384,11 +384,17 @@ const EditForm = () => {
                 {/* <div className="text-gray-400 mb-2 text-3xl">+</div> */}
                 <span className="text-sm font-medium text-gray-600">
                   <img
-                    src={`http://localhost:3000/${editCars?.image[0]}`}
+                    src={`https://vercel-crs-backend.vercel.app/${editCars?.image[0]}`}
                     alt=""
                   />
                 </span>
-                <input type="file" multiple ref={imageRef} accept="image/*" className="hidden" />
+                <input
+                  type="file"
+                  multiple
+                  ref={imageRef}
+                  accept="image/*"
+                  className="hidden"
+                />
               </label>
             </div>
           </div>

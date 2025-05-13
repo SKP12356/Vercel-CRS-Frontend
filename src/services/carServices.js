@@ -42,7 +42,7 @@ export const addCarService = async (
 
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/host/cars",
+      url: "https://vercel-crs-backend.vercel.app/host/cars",
       headers: {
         "Content-Type": "multipart/form-data",
         ...getAuthHeader(),
@@ -79,7 +79,7 @@ export const addUser = async (
     formData.append("confirmPassword", confirmPassword);
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/auth/register",
+      url: "https://vercel-crs-backend.vercel.app/auth/register",
       headers: {
         "Content-Type": "multipart/form-data",
         ...getAuthHeader(),
@@ -124,7 +124,7 @@ export const addHost = async (
     formData.append("idNumber", idNumber);
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/auth/hostregister",
+      url: "https://vercel-crs-backend.vercel.app/auth/hostregister",
       headers: {
         "Content-Type": "multipart/form-data",
         ...getAuthHeader(),
@@ -143,7 +143,7 @@ export const loginUser = async (email, password) => {
   try {
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/auth/login",
+      url: "https://vercel-crs-backend.vercel.app/auth/login",
       headers: {
         "Content-Type": "application/json",
       },
@@ -162,7 +162,9 @@ export const loginUser = async (email, password) => {
 
 export const getCarServices = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/host/cars");
+    const response = await axios.get(
+      "https://vercel-crs-backend.vercel.app/host/cars"
+    );
     const cars = await response.data;
     // console.log(cars)
     return cars;
@@ -173,11 +175,14 @@ export const getCarServices = async () => {
 
 export const getMyCarServices = async (token) => {
   try {
-    const response = await axios.get("http://localhost:3000/host/cars/mycars", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await axios.get(
+      "https://vercel-crs-backend.vercel.app/host/cars/mycars",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     const cars = await response.data;
     // return cars.map(mapServices);
     return cars;
@@ -188,7 +193,7 @@ export const getMyCarServices = async (token) => {
 
 export const deleteCarServer = async (id) => {
   try {
-    await axios(`http://localhost:3000/host/cars/${id}`, {
+    await axios(`https://vercel-crs-backend.vercel.app/host/cars/${id}`, {
       method: "DELETE",
       headers: getAuthHeader(),
     });
@@ -203,7 +208,7 @@ export const deleteCarServer = async (id) => {
 export const getDetails = async (id) => {
   try {
     const response = await axios.get(
-      `http://localhost:3000/host/cars/details/${id}`
+      `https://vercel-crs-backend.vercel.app/host/cars/details/${id}`
     );
     const car = await response.data;
     // console.log(car);
@@ -258,14 +263,17 @@ export const editCarServer = async (
     // console.log(existingImage)
     // formData.append("existingImage", existingImage);
     formData.append("existingImage", JSON.stringify(existingImage));
-    const response = await axios(`http://localhost:3000/host/cars/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "multipart/form-data",
-        ...getAuthHeader(),
-      },
-      data: formData,
-    });
+    const response = await axios(
+      `https://vercel-crs-backend.vercel.app/host/cars/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "multipart/form-data",
+          ...getAuthHeader(),
+        },
+        data: formData,
+      }
+    );
     const car = await response.data;
     // return mapServices(car);
     return car;
@@ -300,7 +308,7 @@ export const getFavouriteCar = async (token) => {
   // console.log(token)
   try {
     const response = await axios.get(
-      "http://localhost:3000/user/cars/favourite",
+      "https://vercel-crs-backend.vercel.app/user/cars/favourite",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -319,7 +327,7 @@ export const addFavCar = async (id) => {
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:3000/user/cars/favourite/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/user/cars/favourite/${id}`,
       headers: {
         "Content-Type": "application/json",
         ...getAuthHeader(),
@@ -337,10 +345,13 @@ export const addFavCar = async (id) => {
 
 export const deleteFavCar = async (id) => {
   try {
-    await axios(`http://localhost:3000/user/cars/favourite/${id}`, {
-      method: "DELETE",
-      headers: getAuthHeader(),
-    });
+    await axios(
+      `https://vercel-crs-backend.vercel.app/user/cars/favourite/${id}`,
+      {
+        method: "DELETE",
+        headers: getAuthHeader(),
+      }
+    );
     return id;
   } catch (error) {
     console.error(error);
@@ -350,7 +361,7 @@ export const deleteFavCar = async (id) => {
 export const getBookingCar = async (token) => {
   try {
     const response = await axios.get(
-      "http://localhost:3000/user/cars/bookings",
+      "https://vercel-crs-backend.vercel.app/user/cars/bookings",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -369,7 +380,7 @@ export const addBookingCar = async (value, id, pays, unavailableTime) => {
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:3000/user/cars/bookings/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/user/cars/bookings/${id}`,
       headers: {
         "Content-Type": "application/json",
         ...getAuthHeader(),
@@ -391,10 +402,13 @@ export const addBookingCar = async (value, id, pays, unavailableTime) => {
 
 export const deleteBookingCar = async (id) => {
   try {
-    await axios(`http://localhost:3000/user/cars/bookings/${id}`, {
-      method: "DELETE",
-      headers: getAuthHeader(),
-    });
+    await axios(
+      `https://vercel-crs-backend.vercel.app/user/cars/bookings/${id}`,
+      {
+        method: "DELETE",
+        headers: getAuthHeader(),
+      }
+    );
     return id;
   } catch (error) {
     console.error(error);
@@ -404,7 +418,7 @@ export const deleteBookingCar = async (id) => {
 export const searchCarServices = async (query) => {
   try {
     const response = await axios.get(
-      `http://localhost:3000/user/cars?search=${query}`,
+      `https://vercel-crs-backend.vercel.app/user/cars?search=${query}`,
       {
         headers: {
           ...getAuthHeader(),
@@ -431,7 +445,7 @@ export const handleRazorpayPayment = async (value, carId, unavailableTime) => {
   try {
     // 1. Create order using your backend API
     const { data: order } = await axios.post(
-      "http://localhost:3000/user/cars/payment",
+      "https://vercel-crs-backend.vercel.app/user/cars/payment",
       {
         amount: value, // in ₹
       }
@@ -510,7 +524,7 @@ export const uploadDocumentsService = async (frLicense, baLicense, gId) => {
 
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/user/cars/documents",
+      url: "https://vercel-crs-backend.vercel.app/user/cars/documents",
       headers: {
         "Content-Type": "multipart/form-data",
         ...getAuthHeader(),
@@ -551,7 +565,7 @@ export const updateDocumentsService = async (
     // console.log(formData)
 
     const response = await axios({
-      url: `http://localhost:3000/user/cars/uplodedDocs/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/user/cars/uplodedDocs/${id}`,
       method: "PUT",
       headers: {
         "Content-Type": "multipart/form-data",
@@ -571,7 +585,7 @@ export const updateDocumentsService = async (
 export const getDocuments = async (token) => {
   try {
     const response = await axios.get(
-      "http://localhost:3000/user/cars/uplodedDocs",
+      "https://vercel-crs-backend.vercel.app/user/cars/uplodedDocs",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -589,7 +603,7 @@ export const getDocuments = async (token) => {
 export const getHistory = async (token) => {
   try {
     const response = await axios.get(
-      "http://localhost:3000/user/cars/history",
+      "https://vercel-crs-backend.vercel.app/user/cars/history",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -606,7 +620,9 @@ export const getHistory = async (token) => {
 
 export const getPopularCars = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/user/cars/popular");
+    const response = await axios.get(
+      "https://vercel-crs-backend.vercel.app/user/cars/popular"
+    );
     const cars = await response.data;
     return cars;
   } catch (error) {
@@ -639,7 +655,7 @@ export const modifyUserProfile = async (
     formData.append("address", address);
     formData.append("previousImage", previousImage);
     const response = await axios({
-      url: `http://localhost:3000/auth/updateprofile/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/auth/updateprofile/${id}`,
       method: "PUT",
       headers: {
         "Content-Type": "multipart/form-data",
@@ -664,7 +680,7 @@ export const updateUserPassword = async (
 ) => {
   try {
     const response = await axios({
-      url: `http://localhost:3000/auth/updatepassword/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/auth/updatepassword/${id}`,
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -687,7 +703,7 @@ export const updateUserPassword = async (
 export const searchHistoryServices = async (query) => {
   try {
     const response = await axios.get(
-      `http://localhost:3000/host/cars/searchHistory?search=${query}`,
+      `https://vercel-crs-backend.vercel.app/host/cars/searchHistory?search=${query}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -708,7 +724,7 @@ export const emailOtpService = async (id, otp) => {
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:3000/auth/verify-email/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/auth/verify-email/${id}`,
       headers: {
         "Content-Type": "application/json",
         // ...getAuthHeader(),
@@ -730,7 +746,7 @@ export const resendOtp = async (id) => {
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:3000/auth/resendOtp/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/auth/resendOtp/${id}`,
       headers: {
         "Content-Type": "application/json",
         // ...getAuthHeader(),
@@ -751,7 +767,7 @@ export const phoneOtpService = async (id) => {
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:3000/auth/verify-phone/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/auth/verify-phone/${id}`,
       headers: {
         "Content-Type": "application/json",
         // ...getAuthHeader(),
@@ -770,7 +786,7 @@ export const addphoneOtpService = async (id, otp) => {
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:3000/auth/verify-otp/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/auth/verify-otp/${id}`,
       headers: {
         "Content-Type": "application/json",
         // ...getAuthHeader(),
@@ -792,7 +808,7 @@ export const resendPhoneOtp = async (id) => {
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:3000/auth/resendPhoneOtp/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/auth/resendPhoneOtp/${id}`,
       headers: {
         "Content-Type": "application/json",
         // ...getAuthHeader(),
@@ -807,18 +823,18 @@ export const resendPhoneOtp = async (id) => {
   }
 };
 
-export const sendEmailforVerify = async(email) => {
+export const sendEmailforVerify = async (email) => {
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:3000/auth/verifyemail-password`,
+      url: `https://vercel-crs-backend.vercel.app/auth/verifyemail-password`,
       headers: {
         "Content-Type": "application/json",
         // ...getAuthHeader(),
       },
       data: {
-        email
-      }
+        email,
+      },
     });
     const data = await response.data;
     console.log(data);
@@ -826,22 +842,22 @@ export const sendEmailforVerify = async(email) => {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
-export const rewritePassword = async(id, password, confirmPassword) => {
-  console.log(password)
+export const rewritePassword = async (id, password, confirmPassword) => {
+  console.log(password);
   try {
     const response = await axios({
       method: "POST",
-      url: `http://localhost:3000/auth/changePassword/${id}`,
+      url: `https://vercel-crs-backend.vercel.app/auth/changePassword/${id}`,
       headers: {
         "Content-Type": "application/json",
         // ...getAuthHeader(),
       },
       data: {
         password,
-        confirmPassword
-      }
+        confirmPassword,
+      },
     });
     const data = await response.data;
     console.log(data);
@@ -849,4 +865,4 @@ export const rewritePassword = async(id, password, confirmPassword) => {
   } catch (error) {
     console.error(error);
   }
-}
+};

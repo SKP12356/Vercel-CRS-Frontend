@@ -81,11 +81,11 @@ const SignupForm = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/google";
+    window.location.href = "https://vercel-crs-backend.vercel.app/auth/google";
   };
 
   // const handleGitHubLogin = () => {
-  //   window.location.href = "http://localhost:3000/auth/github";
+  //   window.location.href = "https://vercel-crs-backend.vercel.app/auth/github";
   // };
 
   return (

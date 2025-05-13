@@ -8,7 +8,7 @@ const BookCard = ({ vehicles }) => {
 
   const handleRemove = (id) => {
     deleteBookedCars(id);
-    toast.error("Removed from bookings")
+    toast.error("Removed from bookings");
   };
 
   return (
@@ -23,7 +23,7 @@ const BookCard = ({ vehicles }) => {
             {/* Vehicle Image with Gradient Overlay */}
             <div className="relative h-52 overflow-hidden">
               <img
-                src={`http://localhost:3000/${vehicle.bookId.image[0]}`}
+                src={`https://vercel-crs-backend.vercel.app/${vehicle.bookId.image[0]}`}
                 alt={`${vehicle.bookId.make} ${vehicle.bookId.model}`}
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
               />
@@ -50,12 +50,14 @@ const BookCard = ({ vehicles }) => {
                 <div className="flex justify-end mb-2">
                   <span
                     className={`${
-                      vehicle.bookId.status === "unavailable" 
-                        ? "bg-green-100 text-green-800" 
+                      vehicle.bookId.status === "unavailable"
+                        ? "bg-green-100 text-green-800"
                         : "bg-blue-100 text-blue-800"
                     } text-xs px-2.5 py-1 rounded-full font-medium`}
                   >
-                    {vehicle.bookId.status === "unavailable" ? "Booked" : "Completed"}
+                    {vehicle.bookId.status === "unavailable"
+                      ? "Booked"
+                      : "Completed"}
                   </span>
                 </div>
 
@@ -63,25 +65,35 @@ const BookCard = ({ vehicles }) => {
                 <div className="grid grid-cols-2 gap-2 mb-4 text-sm">
                   <div className="flex items-center bg-gray-50 p-2 rounded-lg">
                     <span className="text-gray-500 mr-2">⛽</span>
-                    <span className="font-medium text-gray-800">{vehicle.bookId.fuelType}</span>
+                    <span className="font-medium text-gray-800">
+                      {vehicle.bookId.fuelType}
+                    </span>
                   </div>
                   <div className="flex items-center bg-gray-50 p-2 rounded-lg">
                     <span className="text-gray-500 mr-2">🔄</span>
-                    <span className="font-medium text-gray-800">{vehicle.bookId.transmission}</span>
+                    <span className="font-medium text-gray-800">
+                      {vehicle.bookId.transmission}
+                    </span>
                   </div>
                   <div className="flex items-center bg-gray-50 p-2 rounded-lg">
                     <span className="text-gray-500 mr-2">👥</span>
-                    <span className="font-medium text-gray-800">{vehicle.bookId.seats} seats</span>
+                    <span className="font-medium text-gray-800">
+                      {vehicle.bookId.seats} seats
+                    </span>
                   </div>
                   <div className="flex items-center bg-gray-50 p-2 rounded-lg">
                     <span className="text-gray-500 mr-2">📏</span>
-                    <span className="font-medium text-gray-800">{vehicle.bookId.mileage} mi</span>
+                    <span className="font-medium text-gray-800">
+                      {vehicle.bookId.mileage} mi
+                    </span>
                   </div>
                 </div>
 
                 {/* Features */}
                 <div className="mb-3">
-                  <p className="text-xs font-medium text-gray-500 mb-1.5">FEATURES</p>
+                  <p className="text-xs font-medium text-gray-500 mb-1.5">
+                    FEATURES
+                  </p>
                   <div className="flex flex-wrap gap-1.5">
                     {featureArray?.slice(0, 4).map((feature, index) => (
                       <span
@@ -102,10 +114,7 @@ const BookCard = ({ vehicles }) => {
 
               {/* Action Buttons */}
               <div className="flex gap-2 mt-3">
-                <Link 
-                  className="flex-1" 
-                  to={`/user/payment/${vehicle._id}`}
-                >
+                <Link className="flex-1" to={`/user/payment/${vehicle._id}`}>
                   <button
                     className={`w-full py-2 px-3 rounded-lg font-medium text-sm ${
                       vehicle.bookId.status === "unavailable"

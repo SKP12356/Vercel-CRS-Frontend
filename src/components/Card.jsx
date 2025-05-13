@@ -5,11 +5,11 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Card = ({ vehicles }) => {
-  const location = useLocation()
-  const query = new URLSearchParams(location.search)
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
   let coupen;
-  if(query.size > 0) {
-    coupen = query.get("coupen")
+  if (query.size > 0) {
+    coupen = query.get("coupen");
     // console.log(coupen)
   }
   const {
@@ -70,7 +70,7 @@ const Card = ({ vehicles }) => {
             {/* Vehicle Image */}
             <div className="relative h-56 overflow-hidden">
               <img
-                src={`http://localhost:3000/${vehicle?.image[0]}`}
+                src={`https://vercel-crs-backend.vercel.app/${vehicle?.image[0]}`}
                 alt={`${vehicle?.make} ${vehicle?.model}`}
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
               />
@@ -193,7 +193,7 @@ const Card = ({ vehicles }) => {
                 {/* Host Information */}
                 <div className="flex items-center gap-2 mt-3 p-2 bg-gray-50 rounded-lg">
                   <img
-                    src={`http://localhost:3000/${vehicle?.host?.image}`}
+                    src={`https://vercel-crs-backend.vercel.app/${vehicle?.host?.image}`}
                     alt={vehicle.host?.fullName}
                     className="w-8 h-8 rounded-full object-cover border border-gray-200"
                   />
@@ -220,8 +220,12 @@ const Card = ({ vehicles }) => {
                 <Link
                   to={
                     userType === "user"
-                      // ? `/user/payment/${vehicle._id}`
-                      ? `${query.size > 0 ? `/user/payment/${vehicle._id}?coupen=${coupen}` : `/user/payment/${vehicle._id}`}`
+                      ? // ? `/user/payment/${vehicle._id}`
+                        `${
+                          query.size > 0
+                            ? `/user/payment/${vehicle._id}?coupen=${coupen}`
+                            : `/user/payment/${vehicle._id}`
+                        }`
                       : "/user/signup"
                   }
                   className="flex-1"

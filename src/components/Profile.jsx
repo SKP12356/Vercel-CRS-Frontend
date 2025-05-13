@@ -23,7 +23,7 @@ const Profile = () => {
         <div className="flex flex-col items-center md:items-start space-y-4 md:w-1/3">
           <div className="relative">
             <img
-              src={`http://localhost:3000/${user?.image}`}
+              src={`https://vercel-crs-backend.vercel.app/${user?.image}`}
               alt="Profile"
               className="h-40 w-40 rounded-full object-cover border-4 border-gray-100 shadow-sm"
             />
@@ -88,9 +88,9 @@ const Profile = () => {
               Address
             </label>
             <div className="w-full px-4 py-3 bg-gray-50 rounded-md border border-gray-200">
-              {`${user?.addressLine || ""}${user?.city ? ", " + user.city : ""}${
-                user?.state ? ", " + user.state : ""
-              }`}
+              {`${user?.addressLine || ""}${
+                user?.city ? ", " + user.city : ""
+              }${user?.state ? ", " + user.state : ""}`}
             </div>
           </div>
         </div>

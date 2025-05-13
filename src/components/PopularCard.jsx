@@ -26,7 +26,7 @@ const PopularCard = ({ vehicles }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
       {vehicles?.map((vehicle) => {
-        let count = vehicle.count
+        let count = vehicle.count;
         return vehicle?.carDetails.map((vehicle) => {
           // console.log(vehicle.carDetails);
           // console.log(vehicle)
@@ -40,7 +40,7 @@ const PopularCard = ({ vehicles }) => {
               {/* Vehicle Image */}
               <div className="relative h-56 overflow-hidden">
                 <img
-                  src={`http://localhost:3000/${vehicle.image[0]}`}
+                  src={`https://vercel-crs-backend.vercel.app/${vehicle.image[0]}`}
                   alt={`${vehicle.make} ${vehicle.model}`}
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />
@@ -52,13 +52,13 @@ const PopularCard = ({ vehicles }) => {
                         : "/user/signup"
                     }
                   > */}
-                    <button
-                      onClick={() => handleClick(vehicle._id)}
-                      className="text-sm text-pink-500 hover:text-pink-600 bg-white p-2 rounded-full shadow-md transform hover:scale-110 transition-all duration-300"
-                    >
-                      {count} <MdFavorite />
-                      {/* liked by {count} */}
-                    </button>
+                  <button
+                    onClick={() => handleClick(vehicle._id)}
+                    className="text-sm text-pink-500 hover:text-pink-600 bg-white p-2 rounded-full shadow-md transform hover:scale-110 transition-all duration-300"
+                  >
+                    {count} <MdFavorite />
+                    {/* liked by {count} */}
+                  </button>
                   {/* </Link> */}
                 </div>
                 <div className="absolute top-3 right-3">

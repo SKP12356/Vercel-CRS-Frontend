@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import Loader from "./Loader";
 
 const HostCard = ({ vehicles }) => {
-  if(!vehicles){
-    return <Loader />
+  if (!vehicles) {
+    return <Loader />;
   }
   const { deleteCars } = useContext(CarContext);
 
@@ -19,7 +19,7 @@ const HostCard = ({ vehicles }) => {
       {vehicles?.map((vehicle) => {
         let features = vehicle?.features;
         const featureArray = features?.split(",");
-        
+
         return (
           <div
             key={vehicle?._id}
@@ -27,7 +27,7 @@ const HostCard = ({ vehicles }) => {
           >
             <div className="relative h-52 overflow-hidden">
               <img
-                src={`http://localhost:3000/${vehicle?.image[0]}`}
+                src={`https://vercel-crs-backend.vercel.app/${vehicle?.image[0]}`}
                 alt={`${vehicle?.make} ${vehicle?.model}`}
                 className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
               />
@@ -71,25 +71,35 @@ const HostCard = ({ vehicles }) => {
                 <div className="grid grid-cols-2 gap-3 my-3 text-sm bg-gray-50 p-3 rounded-lg">
                   <div className="flex items-center">
                     <span className="text-gray-600 mr-2 text-lg">⛽</span>
-                    <span className="font-medium text-gray-800">{vehicle?.fuelType}</span>
+                    <span className="font-medium text-gray-800">
+                      {vehicle?.fuelType}
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-gray-600 mr-2 text-lg">🔄</span>
-                    <span className="font-medium text-gray-800">{vehicle?.transmission}</span>
+                    <span className="font-medium text-gray-800">
+                      {vehicle?.transmission}
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-gray-600 mr-2 text-lg">👥</span>
-                    <span className="font-medium text-gray-800">{vehicle?.seats} seats</span>
+                    <span className="font-medium text-gray-800">
+                      {vehicle?.seats} seats
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-gray-600 mr-2 text-lg">📏</span>
-                    <span className="font-medium text-gray-800">{vehicle?.mileage} mi</span>
+                    <span className="font-medium text-gray-800">
+                      {vehicle?.mileage} mi
+                    </span>
                   </div>
                 </div>
 
                 {/* Features */}
                 <div className="mb-4">
-                  <p className="text-xs text-gray-500 mb-1 font-medium">FEATURES</p>
+                  <p className="text-xs text-gray-500 mb-1 font-medium">
+                    FEATURES
+                  </p>
                   <div className="flex flex-wrap gap-1.5">
                     {featureArray?.slice(0, 4).map((feature, index) => (
                       <span

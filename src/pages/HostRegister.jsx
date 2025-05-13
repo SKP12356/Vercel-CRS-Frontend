@@ -50,7 +50,7 @@ const HostRegister = () => {
       idType,
       idNumber
     );
-    console.log(data)
+    console.log(data);
     if (data?.host) {
       // navigate("/user/login");
       navigate(`/user/emailotp/${data?.host._id}`);
@@ -58,11 +58,11 @@ const HostRegister = () => {
       setErr(data);
     }
   };
-  
+
   const handlePass = () => {
     setShowPass(!showPass);
   };
-  
+
   const handleImage = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -72,22 +72,25 @@ const HostRegister = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/hostgoogle";
+    window.location.href =
+      "https://vercel-crs-backend.vercel.app/auth/hostgoogle";
   };
 
   return (
     <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-3xl shadow-lg my-10">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-indigo-800">Become a Host</h2>
-        <p className="text-gray-600 mt-2">Share your vehicle and start earning</p>
+        <p className="text-gray-600 mt-2">
+          Share your vehicle and start earning
+        </p>
       </div>
-      
+
       {err && (
         <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-lg">
           <p className="text-red-700 font-medium">{err}</p>
         </div>
       )}
-      
+
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Profile Image Section */}
         <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-sm">
@@ -100,8 +103,19 @@ const HostRegister = () => {
                   alt="Profile preview"
                 />
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-16 w-16 text-gray-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
                 </svg>
               )}
             </div>
@@ -144,8 +158,17 @@ const HostRegister = () => {
         {/* Personal Information */}
         <div className="bg-white p-6 rounded-2xl shadow-sm">
           <h3 className="text-xl font-semibold text-indigo-800 mb-4 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clipRule="evenodd"
+              />
             </svg>
             Personal Information
           </h3>
@@ -229,8 +252,17 @@ const HostRegister = () => {
         {/* Address Information */}
         <div className="bg-white p-6 rounded-2xl shadow-sm">
           <h3 className="text-xl font-semibold text-indigo-800 mb-4 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                clipRule="evenodd"
+              />
             </svg>
             Address Information
           </h3>
@@ -292,8 +324,17 @@ const HostRegister = () => {
         {/* Identity Verification */}
         <div className="bg-white p-6 rounded-2xl shadow-sm">
           <h3 className="text-xl font-semibold text-indigo-800 mb-4 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clipRule="evenodd" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z"
+                clipRule="evenodd"
+              />
             </svg>
             Identity Verification
           </h3>
@@ -342,7 +383,10 @@ const HostRegister = () => {
             </div>
             <label htmlFor="terms" className="ml-3 text-sm text-gray-600">
               I agree to the{" "}
-              <a href="#" className="text-indigo-600 hover:underline font-medium">
+              <a
+                href="#"
+                className="text-indigo-600 hover:underline font-medium"
+              >
                 terms and conditions
               </a>
             </label>
@@ -354,7 +398,12 @@ const HostRegister = () => {
           type="submit"
           className="w-full py-4 px-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl shadow-md transition duration-200 flex items-center justify-center"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 mr-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
             <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
           </svg>
           Register as Host
@@ -398,11 +447,11 @@ const HostRegister = () => {
               Facebook
             </button>
           </div> */}
-          
+
           <p className="text-center text-sm text-gray-600 mt-6">
             Already have an account?{" "}
             <Link
-              to={userType === 'user' ? "/logout" : "/user/login"}
+              to={userType === "user" ? "/logout" : "/user/login"}
               className="text-indigo-600 font-medium hover:underline"
             >
               Sign in with your host account

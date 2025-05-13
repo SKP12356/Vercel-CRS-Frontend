@@ -5,12 +5,13 @@ import { MdFavorite, MdClose } from "react-icons/md";
 import toast from "react-hot-toast";
 
 const FavCard = ({ vehicles }) => {
-  const { deleteFavouriteCars, favourite, setFavourite } = useContext(CarContext);
+  const { deleteFavouriteCars, favourite, setFavourite } =
+    useContext(CarContext);
 
   const handleRemove = (id) => {
     deleteFavouriteCars(id);
     setFavourite(false);
-    toast.error("Removed from favourites")
+    toast.error("Removed from favourites");
   };
 
   return (
@@ -18,7 +19,7 @@ const FavCard = ({ vehicles }) => {
       {vehicles?.map((vehicle) => {
         let features = vehicle?.features;
         const featureArray = features?.split(",");
-        
+
         return (
           <div
             key={vehicle?._id}
@@ -28,20 +29,22 @@ const FavCard = ({ vehicles }) => {
             <div className="bg-pink-50 py-1.5 px-4 flex items-center justify-between">
               <div className="flex items-center">
                 <MdFavorite className="text-pink-600 mr-2" />
-                <span className="text-sm font-medium text-pink-600">Favorite</span>
+                <span className="text-sm font-medium text-pink-600">
+                  Favorite
+                </span>
               </div>
-              <button 
+              <button
                 onClick={() => handleRemove(vehicle?._id)}
                 className="text-gray-500 hover:text-red-600 transition-colors cursor-pointer"
               >
                 <MdClose className="text-lg" />
               </button>
             </div>
-            
+
             {/* Vehicle Image */}
             <div className="relative h-48 overflow-hidden">
               <img
-                src={`http://localhost:3000/${vehicle?.image?.[0]}`}
+                src={`https://vercel-crs-backend.vercel.app/${vehicle?.image?.[0]}`}
                 alt={`${vehicle?.make} ${vehicle?.model}`}
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
               />
@@ -70,10 +73,12 @@ const FavCard = ({ vehicles }) => {
                       : "bg-green-100 text-green-800"
                   } text-xs px-2 py-1 rounded-full font-medium`}
                 >
-                  {vehicle?.status === "unavailable" ? "Unavailable" : "Available"}
+                  {vehicle?.status === "unavailable"
+                    ? "Unavailable"
+                    : "Available"}
                 </span>
               </div>
-              
+
               {/* Divider */}
               <div className="border-t border-gray-100 my-3"></div>
 
@@ -81,11 +86,15 @@ const FavCard = ({ vehicles }) => {
               <div className="flex justify-between mb-4">
                 <div className="flex flex-col items-center">
                   <span className="text-gray-400 text-lg mb-1">⛽</span>
-                  <span className="text-sm font-medium">{vehicle?.fuelType}</span>
+                  <span className="text-sm font-medium">
+                    {vehicle?.fuelType}
+                  </span>
                 </div>
                 <div className="flex flex-col items-center">
                   <span className="text-gray-400 text-lg mb-1">🔄</span>
-                  <span className="text-sm font-medium">{vehicle?.transmission}</span>
+                  <span className="text-sm font-medium">
+                    {vehicle?.transmission}
+                  </span>
                 </div>
                 <div className="flex flex-col items-center">
                   <span className="text-gray-400 text-lg mb-1">👥</span>
@@ -93,13 +102,17 @@ const FavCard = ({ vehicles }) => {
                 </div>
                 <div className="flex flex-col items-center">
                   <span className="text-gray-400 text-lg mb-1">📏</span>
-                  <span className="text-sm font-medium">{vehicle?.mileage}</span>
+                  <span className="text-sm font-medium">
+                    {vehicle?.mileage}
+                  </span>
                 </div>
               </div>
 
               {/* Features */}
               <div className="mb-4">
-                <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">Features</p>
+                <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">
+                  Features
+                </p>
                 <div className="flex flex-wrap gap-1.5">
                   {featureArray?.slice(0, 3).map((feature, index) => (
                     <span

@@ -6,8 +6,8 @@ import { RiSecurePaymentFill } from "react-icons/ri";
 import { FcApproval } from "react-icons/fc";
 import { FaCartArrowDown } from "react-icons/fa";
 import { MdPendingActions } from "react-icons/md";
-import { BookA, ShieldCheck } from 'lucide-react';
-import Header from "./Header"
+import { BookA, ShieldCheck } from "lucide-react";
+import Header from "./Header";
 import { CarContext } from "../store/carStore";
 
 const Sidebar = () => {
@@ -21,7 +21,7 @@ const Sidebar = () => {
     name = <p className="font-semibold text-lg">{user.fullName}</p>;
     image = (
       <img
-        src={`http://localhost:3000/${user.image}`}
+        src={`https://vercel-crs-backend.vercel.app/${user.image}`}
         alt="user"
         className="w-full h-full object-cover rounded-full"
       />
@@ -39,7 +39,11 @@ const Sidebar = () => {
             }`}
           >
             {/* <MdPendingActions className={activeTab === "Earnings" ? "text-indigo-600" : "text-indigo-300"} /> */}
-            <ShieldCheck className={activeTab === "Earnings" ? "text-indigo-600" : "text-indigo-300"} />
+            <ShieldCheck
+              className={
+                activeTab === "Earnings" ? "text-indigo-600" : "text-indigo-300"
+              }
+            />
             <span className="ml-2 font-medium">Earnings</span>
           </Link>
         </li>
@@ -67,7 +71,7 @@ const Sidebar = () => {
     );
     image = (
       <img
-        src={`http://localhost:3000/${user.image}`}
+        src={`https://vercel-crs-backend.vercel.app/${user.image}`}
         alt="user"
         className="w-full h-full object-cover rounded-full"
       />
@@ -84,7 +88,13 @@ const Sidebar = () => {
                 : "text-white hover:bg-indigo-700/40"
             }`}
           >
-            <GrFavorite className={activeTab === "Favorites" ? "text-indigo-600" : "text-indigo-300"} />
+            <GrFavorite
+              className={
+                activeTab === "Favorites"
+                  ? "text-indigo-600"
+                  : "text-indigo-300"
+              }
+            />
             <span className="ml-3 font-medium">Favorites</span>
           </Link>
         </li>
@@ -99,7 +109,13 @@ const Sidebar = () => {
                 : "text-white hover:bg-indigo-700/40"
             }`}
           >
-            <IoDocument className={activeTab === "Documents" ? "text-indigo-600" : "text-indigo-300"} />
+            <IoDocument
+              className={
+                activeTab === "Documents"
+                  ? "text-indigo-600"
+                  : "text-indigo-300"
+              }
+            />
             <span className="ml-3 font-medium">Documents</span>
           </Link>
         </li>
@@ -114,7 +130,13 @@ const Sidebar = () => {
                 : "text-white hover:bg-indigo-700/40"
             }`}
           >
-            <RiSecurePaymentFill className={activeTab === "Payments & Invoice" ? "text-indigo-600" : "text-indigo-300"} />
+            <RiSecurePaymentFill
+              className={
+                activeTab === "Payments & Invoice"
+                  ? "text-indigo-600"
+                  : "text-indigo-300"
+              }
+            />
             <span className="ml-3 font-medium">Payments & Invoice</span>
           </Link>
         </li>
@@ -156,7 +178,11 @@ const Sidebar = () => {
           <div className="ml-4">
             {name}
             <p className="text-xs text-indigo-200 font-medium opacity-70">
-              {userType === "host" ? "Vehicle Host" : userType === "user" ? "Member" : "Guest"}
+              {userType === "host"
+                ? "Vehicle Host"
+                : userType === "user"
+                ? "Member"
+                : "Guest"}
             </p>
           </div>
         </div>
@@ -176,7 +202,11 @@ const Sidebar = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`h-5 w-5 ${activeTab === "Dashboard" ? "text-indigo-600" : "text-indigo-300"}`}
+                  className={`h-5 w-5 ${
+                    activeTab === "Dashboard"
+                      ? "text-indigo-600"
+                      : "text-indigo-300"
+                  }`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -191,7 +221,7 @@ const Sidebar = () => {
                 <span className="ml-3 font-medium">Dashboard</span>
               </Link>
             </li>
-            
+
             {nav}
           </ul>
         </nav>

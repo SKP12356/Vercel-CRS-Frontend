@@ -6,8 +6,15 @@ import toast from "react-hot-toast";
 import Loader from "../components/Loader";
 
 const CarDetails = () => {
-  const { cars, addFavouriteCar, addBookedCars, userType, user, carDetails, favCars } =
-    useContext(CarContext);
+  const {
+    cars,
+    addFavouriteCar,
+    addBookedCars,
+    userType,
+    user,
+    carDetails,
+    favCars,
+  } = useContext(CarContext);
   const [detailsCar, setDetailsCar] = useState();
   const navigate = useNavigate();
 
@@ -30,10 +37,10 @@ const CarDetails = () => {
 
   const handleClick = (id) => {
     if (userType === "user") {
-      const isFav = favCars.find((car) => car._id === id)
-      if(isFav) {
-        toast.error('Already in favourites')
-      }else{
+      const isFav = favCars.find((car) => car._id === id);
+      if (isFav) {
+        toast.error("Already in favourites");
+      } else {
         addFavouriteCar(id);
         toast.success("Vehicle added to favourites successfully");
       }
@@ -98,7 +105,7 @@ const CarDetails = () => {
         {/* Host profile preview */}
         <div className="mt-4 md:mt-0 flex items-center p-3 bg-white rounded-lg shadow-sm border border-gray-100">
           <img
-            src={`http://localhost:3000/${detailsCar?.host.image}`}
+            src={`https://vercel-crs-backend.vercel.app/${detailsCar?.host.image}`}
             alt={detailsCar?.host.fullName}
             className="w-12 h-12 rounded-full object-cover border-2 border-gray-100"
           />
@@ -122,7 +129,7 @@ const CarDetails = () => {
       <div className="grid md:grid-cols-2 gap-6 mb-10">
         <div className="rounded-xl overflow-hidden shadow-md border bg-white h-96 flex items-center justify-center group relative">
           <img
-            src={`http://localhost:3000/${detailsCar?.image[0]}`}
+            src={`https://vercel-crs-backend.vercel.app/${detailsCar?.image[0]}`}
             alt={`${detailsCar?.make} ${detailsCar?.model}`}
             className="w-full h-full object-cover transition group-hover:scale-105 duration-300"
           />
@@ -137,7 +144,7 @@ const CarDetails = () => {
               className="rounded-lg overflow-hidden shadow-md border bg-white h-44 flex items-center justify-center group relative"
             >
               <img
-                src={`http://localhost:3000/${detailsCar?.image[i]}`}
+                src={`https://vercel-crs-backend.vercel.app/${detailsCar?.image[i]}`}
                 alt={`${detailsCar?.make} ${detailsCar?.model}`}
                 className="w-full h-full object-cover transition group-hover:scale-105 duration-300"
               />

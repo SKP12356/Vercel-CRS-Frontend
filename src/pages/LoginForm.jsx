@@ -52,15 +52,16 @@ const LoginForm = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/google";
+    window.location.href = "https://vercel-crs-backend.vercel.app/auth/google";
   };
 
   const handleHostGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/hostgoogle";
+    window.location.href =
+      "https://vercel-crs-backend.vercel.app/auth/hostgoogle";
   };
 
   // const handleGitHubLogin = () => {
-  //   window.location.href = "http://localhost:3000/auth/github";
+  //   window.location.href = "https://vercel-crs-backend.vercel.app/auth/github";
   // };
 
   return (
@@ -147,8 +148,6 @@ const LoginForm = () => {
             Sign In
           </button>
         </form>
-
-        
 
         <p className="text-center text-sm text-gray-600 mt-6">
           Don't have an account?{" "}

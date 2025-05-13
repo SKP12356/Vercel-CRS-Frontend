@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 const Uploadings = () => {
   const { documents } = useContext(CarContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // console.log(documents);
 
   const Documents = {
-    frLicense: `http://localhost:3000/${documents[0]?.frLicense}`,
-    baLicense: `http://localhost:3000/${documents[0]?.baLicense}`,
-    gId: `http://localhost:3000/${documents[0]?.gId}`,
+    frLicense: `https://vercel-crs-backend.vercel.app/${documents[0]?.frLicense}`,
+    baLicense: `https://vercel-crs-backend.vercel.app/${documents[0]?.baLicense}`,
+    gId: `https://vercel-crs-backend.vercel.app/${documents[0]?.gId}`,
   };
 
   const documentTypes = [
@@ -20,8 +20,8 @@ const Uploadings = () => {
   ];
 
   const handleupdate = () => {
-    navigate("/editDocs")
-  }
+    navigate("/editDocs");
+  };
 
   return (
     <div className="flex-1">
@@ -52,7 +52,10 @@ const Uploadings = () => {
                   {label}
                 </a>
                 {/* <div className="flex gap-2"> */}
-                <button className="px-4 py-2 text-sm bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md font-medium transition-colors" onClick={handleupdate}>
+                <button
+                  className="px-4 py-2 text-sm bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md font-medium transition-colors"
+                  onClick={handleupdate}
+                >
                   Update
                 </button>
                 {/* <button className="px-4 py-2 text-sm bg-red-50 text-red-600 hover:bg-red-100 rounded-md font-medium transition-colors">
