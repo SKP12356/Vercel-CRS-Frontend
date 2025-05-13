@@ -8,6 +8,8 @@ const Header = ({ showSidebar }) => {
   let home, nav, auth;
   const { userType, logout } = useContext(CarContext);
   const [sidebar, setSidebar] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   const handleLogout = () => {
     logout();
   };
@@ -24,7 +26,7 @@ const Header = ({ showSidebar }) => {
     );
     auth = (
       <Link
-        className="hidden md:flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md"
+        className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md"
         to="/user/login"
         onClick={handleLogout}
       >
@@ -64,7 +66,7 @@ const Header = ({ showSidebar }) => {
     );
     auth = (
       <Link
-        className="hidden md:flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md"
+        className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md"
         to="/user/login"
         onClick={handleLogout}
       >
@@ -96,7 +98,7 @@ const Header = ({ showSidebar }) => {
     );
     auth = (
       <Link
-        className="hidden md:flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md"
+        className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md"
         to="/user/login"
       >
         <svg
@@ -121,6 +123,10 @@ const Header = ({ showSidebar }) => {
   const handleSidebar = () => {
     setSidebar(!sidebar);
     showSidebar(sidebar);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
@@ -168,7 +174,7 @@ const Header = ({ showSidebar }) => {
               </span>
             </div>
 
-            {/* Primary Navigation */}
+            {/* Primary Navigation - Desktop */}
             <nav className="hidden md:flex items-center space-x-1">
               {home}
               <Link
@@ -192,10 +198,10 @@ const Header = ({ showSidebar }) => {
               </Link>
             </nav>
 
-            {/* Action Buttons */}
-            <div className="flex items-center gap-3">
+            {/* Action Buttons - Desktop */}
+            <div className="hidden md:flex items-center gap-3">
               <Link to={userType === "host" ? "/host/form" : "/host/signup"}>
-                <button className="hidden md:flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700 text-white px-4 py-2 rounded-md hover:from-green-700 hover:to-green-800 transition-all shadow-md">
+                <button className="flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700 text-white px-4 py-2 rounded-md hover:from-green-700 hover:to-green-800 transition-all shadow-md">
                   <MdCreateNewFolder />
                   <span className="font-medium">Create</span>
                 </button>
@@ -204,7 +210,11 @@ const Header = ({ showSidebar }) => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button className="md:hidden p-2 text-white bg-indigo-700/50 rounded-lg hover:bg-indigo-600/50 transition-colors">
+            <button 
+              className="md:hidden p-2 text-white bg-indigo-700/50 rounded-lg hover:bg-indigo-600/50 transition-colors"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -212,17 +222,75 @@ const Header = ({ showSidebar }) => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                {mobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
               </svg>
             </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-indigo-800 shadow-lg">
+          <div className="px-4 py-3 space-y-4">
+            <div className="flex flex-col space-y-2">
+              {home}
+              <Link
+                to="/consumer/vehicles"
+                className="text-gray-100 font-medium hover:text-white transition-colors px-3 py-2 rounded-md hover:bg-indigo-600"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Vehicles
+              </Link>
+              {nav}
+              <Link
+                to="/consumer/services"
+                className="text-gray-100 font-medium hover:text-white transition-colors px-3 py-2 rounded-md hover:bg-indigo-600"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Services
+              </Link>
+              <Link
+                to="/consumer/aboutUs"
+                className="text-gray-100 font-medium hover:text-white transition-colors px-3 py-2 rounded-md hover:bg-indigo-600"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+            </div>
+            
+            {/* Mobile Action Buttons */}
+            <div className="flex flex-col space-y-3 pt-2 border-t border-indigo-700">
+              <Link 
+                to={userType === "host" ? "/host/form" : "/host/signup"}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-green-700 text-white px-4 py-2 rounded-md hover:from-green-700 hover:to-green-800 transition-all shadow-md">
+                  <MdCreateNewFolder />
+                  <span className="font-medium">Create</span>
+                </button>
+              </Link>
+              <div onClick={() => setMobileMenuOpen(false)}>
+                {auth}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
