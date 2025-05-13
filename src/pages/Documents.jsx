@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState, useEffect } from "react";
 import { CarContext } from "../store/carStore";
 import { SiElectronfiddle } from "react-icons/si";
 import Uploadings from "../components/Uploadings";
+import toast from "react-hot-toast";
 
 const Documents = () => {
   const { addDocument, documents } = useContext(CarContext);
@@ -27,15 +28,18 @@ const Documents = () => {
     }
   }, [documents]);
 
-  const handleDoc = (event) => {
+  const handleDoc = async(event) => {
     event.preventDefault();
     const frLicense = frontRef.current.files[0];
     const baLicense = backRef.current.files[0];
     const gId = gRef.current.files[0];
-    addDocument(frLicense, baLicense, gId);
+    const data = addDocument(frLicense, baLicense, gId);
     // setFrontFileName("");
     // setBackFileName("");
     // setGIdFileName("");
+    if(data) {
+      toast.success("Documents submiteed");
+    }
   };
 
   // Add file change handlers

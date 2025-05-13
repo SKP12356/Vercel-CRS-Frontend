@@ -516,10 +516,11 @@ function CarContextProvider({ children }) {
 
   const addDocument = async (frLicense, baLicense, gId) => {
     // console.log(frLicense, baLicense, gId)
-    await uploadDocumentsService(frLicense, baLicense, gId);
+    const data = await uploadDocumentsService(frLicense, baLicense, gId);
     await getDocuments(token).then((docs) => {
       setDocuments(docs);
     });
+    return data;
   };
 
   const updateDocumnets = async (

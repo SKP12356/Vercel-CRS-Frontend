@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import { CarContext } from "../store/carStore";
 import { BiShow, BiHide } from "react-icons/bi";
+import toast from "react-hot-toast";
 
 const Settings = () => {
   const { user, userType, updateProfile, updatePassword } =
@@ -53,6 +54,7 @@ const Settings = () => {
     const phone = numRef.current.value;
     const address = addressRef.current.value;
     updateProfile(user?._id, image, name, email, phone, address, user?.image);
+    toast.success("Changes Saved")
   };
 
   const handlePassword = async (event) => {
@@ -76,6 +78,7 @@ const Settings = () => {
     currentRef.current.value = "";
     newRef.current.value = "";
     confirmRef.current.value = "";
+    toast.success("Password Updated")
   };
 
   return (

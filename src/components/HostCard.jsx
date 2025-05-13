@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CarContext } from "../store/carStore";
 import { Link } from "react-router-dom";
 import Loader from "./Loader";
+import toast from "react-hot-toast";
 
 const HostCard = ({ vehicles }) => {
   if (!vehicles) {
@@ -12,6 +13,7 @@ const HostCard = ({ vehicles }) => {
   const handleDelete = (id) => {
     deleteCars(id);
     // console.log("clicked delete");
+    toast.error("Vehicle deleted")
   };
 
   return (

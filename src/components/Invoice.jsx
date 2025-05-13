@@ -3,6 +3,7 @@ import { CarContext } from "../store/carStore";
 import { useParams } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
+import toast from "react-hot-toast";
 
 const Invoice = () => {
   const { history } = useContext(CarContext);
@@ -21,6 +22,8 @@ const Invoice = () => {
       scale: 2,
       useCORS: true,
     });
+
+    toast.success("Downloading!!!")
 
     const imgData = canvas.toDataURL("image/png");
 

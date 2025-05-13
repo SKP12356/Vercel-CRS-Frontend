@@ -50,7 +50,7 @@ const EditDocs = () => {
       documents[0].gId
     );
     if(data) {
-      toast.success("Documents uploaded successfully")
+      toast.success("Documents updated successfully")
     }
     navigate("/user/documents")
     // setFrontFileName("");

@@ -2,11 +2,12 @@ import React, { useContext, useRef, useEffect, useState } from "react";
 import { CarContext } from "../store/carStore";
 import { getCarServices } from "../services/carServices";
 // import Location from "../components/Location";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const EditForm = () => {
   const { myCars, updateCars, carDetails } = useContext(CarContext);
-
+  const navigate = useNavigate()
   const [editCars, setEditCars] = useState(null);
   const [location, setLocation] = useState("");
   const [lat, setLat] = useState(null);
@@ -128,7 +129,12 @@ const EditForm = () => {
       description,
       editCars?.image
     );
+    toast.success("Changes saved")
   };
+
+  const handleCancel = () => {
+    navigate("/host/vehicles");
+  }
 
   return (
     <div className="max-w-4xl mx-auto p-8 bg-white rounded-2xl shadow-xl">
@@ -418,6 +424,7 @@ const EditForm = () => {
         <div className="flex justify-end space-x-4 pt-2">
           <button
             type="button"
+            onClick={handleCancel}
             className="px-6 py-3 bg-gray-500 text-white font-medium rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 shadow-md transition duration-150"
           >
             Cancel
