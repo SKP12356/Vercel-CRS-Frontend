@@ -226,7 +226,7 @@ const Earnings = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {history.map((payout, index) => {
+                {history?.map((payout, index) => {
                   let arr = payout.bookedAt?.split(" ");
                   return (
                     <tr

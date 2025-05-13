@@ -184,7 +184,7 @@ const Dashboard = () => {
                   </div>
                   {userType === "user" ? (
                     <div className="mt-1">
-                      {bookCars.map(
+                      {bookCars?.map(
                         (car, index) =>
                           car.bookId.status === "unavailable" && (
                             <p key={index} className="text-sm text-gray-500">
@@ -195,7 +195,7 @@ const Dashboard = () => {
                     </div>
                   ) : (
                     <div className="mt-1">
-                      {bookCars.map(
+                      {bookCars?.map(
                         (car, index) =>
                           car.bookId?.status === "unavailable" && (
                             <p key={index} className="text-sm text-gray-500">
@@ -236,7 +236,7 @@ const Dashboard = () => {
                   </div>
                   {userType === "user" ? (
                     <div className="mt-1">
-                      {bookCars.map(
+                      {bookCars?.map(
                         (car, index) =>
                           car.bookId.status === "available" && (
                             <p key={index} className="text-sm text-gray-500">
@@ -247,7 +247,7 @@ const Dashboard = () => {
                     </div>
                   ) : (
                     <div className="mt-1">
-                      {bookCars.map(
+                      {bookCars?.map(
                         (car, index) =>
                           car.bookId?.status === "available" && (
                             <p key={index} className="text-sm text-gray-500">

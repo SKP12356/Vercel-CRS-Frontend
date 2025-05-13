@@ -129,7 +129,7 @@ const Form = () => {
     // }
     const files = Array.from(event.target.files);
     if (files) {
-      const imageUrl = files.map((file) => URL.createObjectURL(file));
+      const imageUrl = files?.map((file) => URL.createObjectURL(file));
       setImageShow(imageUrl);
     }
   };
@@ -528,7 +528,7 @@ const Form = () => {
             <div>
               <label className="flex flex-col items-center justify-center h-48 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-indigo-500 transition-colors duration-200 bg-white overflow-hidden">
                 {imageShow ? (
-                  imageShow.map((src, i) => (
+                  imageShow?.map((src, i) => (
                     <img
                       key={i}
                       src={src}

@@ -25,9 +25,9 @@ const PopularCard = ({ vehicles }) => {
   // console.log(vehicles);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-      {vehicles.map((vehicle) => {
+      {vehicles?.map((vehicle) => {
         let count = vehicle.count
-        return vehicle.carDetails.map((vehicle) => {
+        return vehicle?.carDetails.map((vehicle) => {
           // console.log(vehicle.carDetails);
           // console.log(vehicle)
           let features = vehicle.features;

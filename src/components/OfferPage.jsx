@@ -101,7 +101,7 @@ const OfferPage = () => {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {offers.map((offer) => (
+          {offers?.map((offer) => (
             <div
               key={offer.id}
               className="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300"

@@ -37,7 +37,7 @@ const Uploadings = () => {
               <p className="text-gray-500 italic">No documents found</p>
             </div>
           ) : (
-            documentTypes.map(({ label, key, icon }) => (
+            documentTypes?.map(({ label, key, icon }) => (
               <div
                 key={key}
                 className="flex justify-between items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"

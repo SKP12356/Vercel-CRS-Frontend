@@ -133,7 +133,7 @@ const HostHistory = () => {
               </thead>
               {activeTab === "All Bookings" && (
                 <tbody className="divide-y divide-gray-200">
-                  {searchedHistories.map((booking, index) => {
+                  {searchedHistories?.map((booking, index) => {
                     const bookDate = booking.bookedAt.split(" ");
                     const compDate = booking.completedAt.split(" ");
                     return (
@@ -224,7 +224,7 @@ const HostHistory = () => {
               )}
               {activeTab === "Completed" && (
                 <tbody className="divide-y divide-gray-200">
-                  {bookCars.map((booking, index) => {
+                  {bookCars?.map((booking, index) => {
                     const bookDate = booking.bookedAt.split(" ");
                     const compDate = booking.completedAt.split(" ");
                     if (booking.bookId.status === "available") {
@@ -317,7 +317,7 @@ const HostHistory = () => {
               )}
               {activeTab === "Ongoing" && (
                 <tbody className="divide-y divide-gray-200">
-                  {bookCars.map((booking, index) => {
+                  {bookCars?.map((booking, index) => {
                     const bookDate = booking.bookedAt.split(" ");
                     const compDate = booking.completedAt.split(" ");
                     if (booking.bookId.status === "unavailable") {

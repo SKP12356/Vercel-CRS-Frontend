@@ -19,7 +19,7 @@ const PaymentsHistory = () => {
 
       {history?.length > 0 ? (
         <div className="space-y-4">
-          {history.map((car, index) => (
+          {history?.map((car, index) => (
             <div
               key={index}
               className="flex justify-between items-center bg-white shadow-md p-5 rounded-xl hover:shadow-lg transition-shadow duration-300"

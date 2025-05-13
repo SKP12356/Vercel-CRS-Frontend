@@ -15,7 +15,7 @@ const FavCard = ({ vehicles }) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {vehicles.map((vehicle) => {
+      {vehicles?.map((vehicle) => {
         let features = vehicle?.features;
         const featureArray = features?.split(",");
         

@@ -418,7 +418,7 @@ function CarContextProvider({ children }) {
       existingImage
     );
 
-    const updatedCar = cars.map((car) => {
+    const updatedCar = cars?.map((car) => {
       if (car._id === id) {
         return {
           id,

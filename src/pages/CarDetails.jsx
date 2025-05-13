@@ -330,7 +330,7 @@ const CarDetails = () => {
             </h2>
             <ul className="space-y-2 grid grid-cols-1 gap-2">
               {Array.isArray(featureArray) ? (
-                featureArray.map((feature, index) => (
+                featureArray?.map((feature, index) => (
                   <li
                     key={index}
                     className="flex items-center text-gray-700 bg-gray-50 p-2 rounded-lg"
