@@ -40,7 +40,7 @@ const PopularCard = ({ vehicles }) => {
               {/* Vehicle Image */}
               <div className="relative h-56 overflow-hidden">
                 <img
-                  src={`https://vercel-crs-backend.vercel.app/${vehicle.image[0]}`}
+                  src={vehicle.image[0]}
                   alt={`${vehicle.make} ${vehicle.model}`}
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />

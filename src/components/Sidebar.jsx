@@ -21,7 +21,7 @@ const Sidebar = () => {
     name = <p className="font-semibold text-lg">{user.fullName}</p>;
     image = (
       <img
-        src={`https://vercel-crs-backend.vercel.app/${user.image}`}
+        src={user.image}
         alt="user"
         className="w-full h-full object-cover rounded-full"
       />
@@ -71,7 +71,7 @@ const Sidebar = () => {
     );
     image = (
       <img
-        src={`https://vercel-crs-backend.vercel.app/${user.image}`}
+        src={user.image}
         alt="user"
         className="w-full h-full object-cover rounded-full"
       />

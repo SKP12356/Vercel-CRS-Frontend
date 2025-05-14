@@ -105,7 +105,7 @@ const CarDetails = () => {
         {/* Host profile preview */}
         <div className="mt-4 md:mt-0 flex items-center p-3 bg-white rounded-lg shadow-sm border border-gray-100">
           <img
-            src={`https://vercel-crs-backend.vercel.app/${detailsCar?.host.image}`}
+            src={detailsCar?.host.image}
             alt={detailsCar?.host.fullName}
             className="w-12 h-12 rounded-full object-cover border-2 border-gray-100"
           />
@@ -129,7 +129,7 @@ const CarDetails = () => {
       <div className="grid md:grid-cols-2 gap-6 mb-10">
         <div className="rounded-xl overflow-hidden shadow-md border bg-white h-96 flex items-center justify-center group relative">
           <img
-            src={`https://vercel-crs-backend.vercel.app/${detailsCar?.image[0]}`}
+            src={detailsCar?.image[0]}
             alt={`${detailsCar?.make} ${detailsCar?.model}`}
             className="w-full h-full object-cover transition group-hover:scale-105 duration-300"
           />
@@ -144,7 +144,7 @@ const CarDetails = () => {
               className="rounded-lg overflow-hidden shadow-md border bg-white h-44 flex items-center justify-center group relative"
             >
               <img
-                src={`https://vercel-crs-backend.vercel.app/${detailsCar?.image[i]}`}
+                src={detailsCar?.image[i]}
                 alt={`${detailsCar?.make} ${detailsCar?.model}`}
                 className="w-full h-full object-cover transition group-hover:scale-105 duration-300"
               />

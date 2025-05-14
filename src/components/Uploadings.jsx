@@ -8,9 +8,9 @@ const Uploadings = () => {
   // console.log(documents);
 
   const Documents = {
-    frLicense: `https://vercel-crs-backend.vercel.app/${documents[0]?.frLicense}`,
-    baLicense: `https://vercel-crs-backend.vercel.app/${documents[0]?.baLicense}`,
-    gId: `https://vercel-crs-backend.vercel.app/${documents[0]?.gId}`,
+    frLicense: `${documents[0]?.frLicense}`,
+    baLicense: `${documents[0]?.baLicense}`,
+    gId: `${documents[0]?.gId}`,
   };
 
   const documentTypes = [

@@ -390,7 +390,7 @@ const EditForm = () => {
                 {/* <div className="text-gray-400 mb-2 text-3xl">+</div> */}
                 <span className="text-sm font-medium text-gray-600">
                   <img
-                    src={`https://vercel-crs-backend.vercel.app/${editCars?.image[0]}`}
+                    src={editCars?.image[0]}
                     alt=""
                   />
                 </span>

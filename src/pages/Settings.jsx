@@ -179,7 +179,7 @@ const Settings = () => {
                       <div className="relative mb-4">
                         <div className="h-32 w-32 rounded-full overflow-hidden border-4 border-gray-100 shadow-sm">
                           <img
-                            src={`https://vercel-crs-backend.vercel.app/${user.image}`}
+                            src={user.image}
                             alt="Profile"
                             className="h-full w-full object-cover"
                           />

@@ -23,7 +23,7 @@ const BookCard = ({ vehicles }) => {
             {/* Vehicle Image with Gradient Overlay */}
             <div className="relative h-52 overflow-hidden">
               <img
-                src={`https://vercel-crs-backend.vercel.app/${vehicle.bookId.image[0]}`}
+                src={vehicle.bookId.image[0]}
                 alt={`${vehicle.bookId.make} ${vehicle.bookId.model}`}
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
               />
